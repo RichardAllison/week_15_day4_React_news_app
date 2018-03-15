@@ -22,7 +22,7 @@ class NewsContainer extends React.Component {
       if (request.status !== 200) return;
       const jsonString = request.responseText;
       const newsArticles = JSON.parse(jsonString);
-      this.setState({articles: newsArticles});
+      this.setState({articles: newsArticles.articles});
     });
     request.send();
   }
