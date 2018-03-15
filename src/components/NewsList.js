@@ -1,5 +1,6 @@
 import React from 'react';
 import NewsArticle from './NewsArticle';
+import TitleBar from './TitleBar';
 
 const NewsList = (props) => {
 
@@ -16,12 +17,14 @@ const NewsList = (props) => {
         description = {article.description}
         publishedDate = {article.publishedAt}
         url = {article.url}
+        imageUrl = {article.urlToImage}
       />
     )
   });
 
   return (
     <div className = "news-list">
+      <TitleBar/>
       {newsList}
     </div>
   )
