@@ -15,16 +15,21 @@ class NewsContainer extends React.Component {
   }
 
   componentDidMount(){
-
     const url = `https://newsapi.org/v2/top-headlines?sources=bbc-news&apiKey=${newsKey}`
-    console.log(url);
-
-
+    const request = new XMLHttpRequest();
+    request.open('GET', url)
+    request.addEventListener('load', () => {
+      if (request.status !== 200) return;
+      const jsonString = request.responseText;
+      const newsArticles = JSON.parse(jsonString);
+      this.setState({articles: newsArticles});
+    });
+    request.send();
   }
 
   render(){
     return (
-      <div></div>
+      <NewsList articles={this.state.articles}/>
     )
   }
 
