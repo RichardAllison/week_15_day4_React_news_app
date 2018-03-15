@@ -16,6 +16,7 @@ const NewsList = (props) => {
         title = {article.title}
         description = {article.description}
         publishedDate = {article.publishedAt}
+        source ={article.source.name}
         url = {article.url}
         imageUrl = {article.urlToImage}
       />
@@ -24,7 +25,6 @@ const NewsList = (props) => {
 
   return (
     <div className = "news-list">
-      <TitleBar/>
       {newsList}
     </div>
   )

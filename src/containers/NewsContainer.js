@@ -15,7 +15,9 @@ class NewsContainer extends React.Component {
   }
 
   componentDidMount(){
-    const url = `https://newsapi.org/v2/top-headlines?sources=bbc-news&apiKey=${newsKey}`
+    // const url = `https://newsapi.org/v2/top-headlines?sources=bbc-news&apiKey=${newsKey}`
+    const url = `https://newsapi.org/v2/top-headlines?country=gb&apiKey=${newsKey}`
+
     const request = new XMLHttpRequest();
     request.open('GET', url)
     request.addEventListener('load', () => {
@@ -29,7 +31,11 @@ class NewsContainer extends React.Component {
 
   render(){
     return (
-      <NewsList articles={this.state.articles}/>
+      <div className="container">
+        <TitleBar/>
+        <NewsList articles={this.state.articles}/>
+      </div>
+
     )
   }
 
